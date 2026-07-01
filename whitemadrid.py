@@ -852,7 +852,7 @@ def query_ai(prompt, api_key, model, history, cfg):
     messages += history[-20:]
     messages.append({"role": "user", "content": prompt})
 
-    payload = json.dumps({"model": model, "max_tokens": 2000, "messages": messages,
+    payload = json.dumps({"model": model, "max_tokens": 512, "messages": messages,
                           "temperature": 0.7}).encode()
     req = urllib.request.Request(API_URL, data=payload, headers=headers, method="POST")
     try:
